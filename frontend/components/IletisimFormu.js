@@ -19,6 +19,7 @@ const IletisimFormu = () => {
   const [displayData, setDisplayData] = useState(false);
   const [form, setForm] = useState(formData);
   const [errors, setErrors] = useState(errorData);
+  const [ isValid, setIsValid] = useState(true);
 
   const errorHandling = (fieldName, fieldValue) => {
     if (fieldName === "ad" && fieldValue.length < 5)
@@ -47,7 +48,6 @@ const IletisimFormu = () => {
 
     const hasErrors = (submitErrors.ad === "" && submitErrors.soyad === "" && submitErrors.email === "" && submitErrors.mesaj === "");
     setDisplayData(hasErrors);
-
   };
 
   const handleChange = (e) => {
@@ -121,7 +121,11 @@ const IletisimFormu = () => {
 
         {displayData && <Goruntule form={form}/>}
 
-        <button>Gönder</button>
+        <button 
+          type="submit"
+          disabled={!isValid}
+          onClick={handleSubmit}
+        >Gönder</button>
       </form>
     </div>
   );
