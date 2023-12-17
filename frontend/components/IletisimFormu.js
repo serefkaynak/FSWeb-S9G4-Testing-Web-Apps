@@ -19,7 +19,7 @@ const IletisimFormu = () => {
   const [displayData, setDisplayData] = useState(false);
   const [form, setForm] = useState(formData);
   const [errors, setErrors] = useState(errorData);
-  const [ isValid, setIsValid] = useState(true);
+//  const [ isValid, setIsValid] = useState(false);
 
   const errorHandling = (fieldName, fieldValue) => {
     if (fieldName === "ad" && fieldValue.length < 5)
@@ -123,7 +123,7 @@ const IletisimFormu = () => {
 
         <button 
           type="submit"
-          disabled={!isValid}
+          //disabled={!isValid}
           onClick={handleSubmit}
         >Gönder</button>
       </form>
